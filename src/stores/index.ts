@@ -7,6 +7,6 @@ const reducer = {
     comment: commentSlice.reducer
 };
 
-export default configureStore({
+export const store = configureStore({
   reducer,
 });
