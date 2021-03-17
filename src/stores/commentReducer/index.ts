@@ -6,3 +6,5 @@ const commentSlice = createSlice({
     initialState: initCommentState,
     reducers: {}
 })
+
+export default commentSlice;
