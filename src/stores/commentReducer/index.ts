@@ -7,4 +7,4 @@ const commentSlice = createSlice({
     reducers: {}
 })
 
-export default commentSlice;
+export default commentSlice.reducer;

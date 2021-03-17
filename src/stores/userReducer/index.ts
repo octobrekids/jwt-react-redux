@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initUserState } from "./init";
 
 const userSlice = createSlice({
@@ -21,6 +21,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, logout } = userSlice.actions;
 
-export default userSlice;
+export default userSlice.reducer;
