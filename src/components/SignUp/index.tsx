@@ -30,7 +30,38 @@ const SignUpComponent = () => {
 		e.preventDefault();
 		dispatch(signUserUp());
 	};
-	return <div></div>;
+	return (
+		<div>
+			<h2>Sign Up Form</h2>
+			<form onSubmit={onSubmit}>
+				<input
+					type="text"
+					name="username"
+					placeholder="Username"
+					value={signUpForm.username}
+					onChange={handleOnChange}
+				/>
+				<br />
+				<input
+					type="password"
+					name="password"
+					placeholder="password"
+					value={signUpForm.password}
+					onChange={handleOnChange}
+				/>
+				<br />
+				<input
+					type="number"
+					name="age"
+					placeholder="Age"
+					value={signUpForm.age}
+					onChange={handleOnChange}
+				/>
+				<br />
+				<input type="submit" value="login" />
+			</form>
+		</div>
+	);
 };
 
 export default SignUpComponent;
