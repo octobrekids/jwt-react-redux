@@ -1,4 +1,5 @@
-import React, { FormEventHandler, useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { fetchUser } from '../../stores/service/userClient';
 
 interface IUser {
@@ -7,6 +8,7 @@ interface IUser {
 }
 
 const LoginComponent: React.FC = () => {
+	const dispatch = useDispatch();
 	const [user, setUser] = useState<IUser>({
 		username: '',
 		password: '',
@@ -24,7 +26,7 @@ const LoginComponent: React.FC = () => {
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		fetchUser();
+		dispatch(fetchUser());
 	};
 
 	return (
