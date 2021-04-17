@@ -6,10 +6,20 @@ interface IUser {
 }
 
 const LoginComponent: React.FC = () => {
-	const user = useState<IUser>({
+	const [user, setUser] = useState<IUser>({
 		username: '',
 		password: '',
 	});
+
+	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		e.preventDefault();
+		setUser((oldValue) => {
+			return {
+				...oldValue,
+				[e.target.name]: e.target.value,
+			};
+		});
+	};
 
 	return <div></div>;
 };
