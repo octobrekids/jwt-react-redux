@@ -1,10 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import commentSlice from "./commentReducer";
 import userSlice from "./userReducer";
 
-export const store = configureStore({
-  reducer: {
+const rootReducer = combineReducers({
     user: userSlice,
     comment: commentSlice,
-  },
+})
+
+export const store = configureStore({
+  reducer: rootReducer
 });
+
+export type StoresState = ReturnType<typeof rootReducer>;
+
+
+
