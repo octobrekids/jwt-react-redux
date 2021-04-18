@@ -4,7 +4,8 @@ import './App.css';
 import LoginComponent from './components/Login';
 import SignUpComponent from './components/SignUp';
 import { StoresState } from './stores';
-import { autoLogin } from './stores/service/userClient';
+import { logout } from './stores/userReducer';
+import { autoLogin } from './stores/userReducer/action';
 
 function App() {
 	const dispatch = useDispatch();
@@ -15,12 +16,16 @@ function App() {
 	const loggedIn = useSelector((state: StoresState) => state.user.loggedIn);
 	const user = useSelector((state: StoresState) => state.user.user);
 
+	const onLogout = () => {
+		dispatch(logout());
+	};
+
 	return (
 		<div className="App">
 			{!loggedIn ? <h1>sign up or login</h1> : <h1> welcome, {user} </h1>}
 			<SignUpComponent />
 			<LoginComponent />
-			<button>Logout</button>
+			<button onClick={() => onLogout()}>Logout</button>
 		</div>
 	);
 }
