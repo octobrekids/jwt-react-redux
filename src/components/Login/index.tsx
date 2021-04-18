@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchUser } from '../../stores/service/userClient';
+import { fetchUser } from '../../stores/userReducer/action';
 
 interface IUser {
 	username: string;
