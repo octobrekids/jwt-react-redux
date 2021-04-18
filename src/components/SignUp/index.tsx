@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signUserUp } from '../../stores/service/userClient';
+import { signUserUp } from '../../stores/userReducer/action';
 
-interface ISignUp {
+export interface ISignUp {
 	username: string;
 	password: string;
 	age: number;
@@ -28,7 +28,7 @@ const SignUpComponent = () => {
 
 	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		dispatch(signUserUp());
+		dispatch(signUserUp(signUpForm));
 	};
 	return (
 		<div>
